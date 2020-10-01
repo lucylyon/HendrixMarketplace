@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hendrix_marketplace/profile_page.dart';
-import 'edit_profile_page.dart';
-import 'home_page.dart';
+import 'package:hendrix_marketplace/pages/profile_page.dart';
+import 'pages/edit_profile_page.dart';
+import 'pages/home_page.dart';
 
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget{
-
-  static var userName = "Username";
-
 
   @override
   Widget build(BuildContext context){
@@ -35,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage>{
 
   static ProfilePage p = new ProfilePage();
   static HomePage h = new HomePage();
+  static User u = new User();
 
 
 

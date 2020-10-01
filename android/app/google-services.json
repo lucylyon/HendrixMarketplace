@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "336010582857",
+    "firebase_url": "https://hendrix-marketplace.firebaseio.com",
+    "project_id": "hendrix-marketplace",
+    "storage_bucket": "hendrix-marketplace.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336010582857:android:18f41a254118efc50a5898",
+        "android_client_info": {
+          "package_name": "com.example.hendrix_marketplace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336010582857-4jlsdcm097ajukdr3h9ig26f9fdp475c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCZy-QVPfeRSn1rL_1lOFnJUENeSYrwXQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336010582857-4jlsdcm097ajukdr3h9ig26f9fdp475c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
