@@ -1,13 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hendrix_marketplace/main.dart';
-import 'package:hendrix_marketplace/pages//profile_page.dart';
+
 
 class EditProfilePage extends StatefulWidget{
-
-  final User user;
-
-  EditProfilePage({Key key, this.user}) : super(key: key);
 
   @override
   State createState() => new EditProfilePageState();
@@ -20,7 +15,7 @@ class EditProfilePageState extends State<EditProfilePage> {
 
 
   void _saveInfo(){
-     User.userName = newUserName.text;
+     // User.userName = newUserName.text;
   }
 
 

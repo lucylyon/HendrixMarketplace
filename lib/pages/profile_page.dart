@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hendrix_marketplace/main.dart';
+
 
 
 class ProfilePage extends StatefulWidget{
@@ -9,17 +9,7 @@ class ProfilePage extends StatefulWidget{
 }
 
 
-class User {
-
-  static String userName = "Username";
-
-}
-
-
 class ProfilePageState extends State<ProfilePage> {
-  static User user;
-  var displayUsername = User.userName;
-
 
   void _editInfo(){
     {Navigator.of(context).pushNamed("/EditProfilePage");}
@@ -97,7 +87,7 @@ class ProfilePageState extends State<ProfilePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(padding: EdgeInsets.only(left: 0, right: 0, top: 15, bottom: 0),
-              child: Text("$displayUsername", style: TextStyle(fontSize: 30,letterSpacing: 1,color: Colors.white, fontWeight: FontWeight.bold
+              child: Text("Place Holder", style: TextStyle(fontSize: 30,letterSpacing: 1,color: Colors.white, fontWeight: FontWeight.bold
               ),
               ),
               ),
