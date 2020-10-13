@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hendrix_marketplace/pages/profile_page.dart';
+import 'package:hendrix_marketplace/pages/home/profile_page.dart';
 
 import 'home_page.dart';
 
