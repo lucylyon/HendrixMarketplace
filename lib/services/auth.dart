@@ -17,19 +17,14 @@ class loginService {
 
 // Lets user sign in with an email and password
   Future signInEmailPassword(String email, String password) async {
-    try{
-
+    try {
       AuthResult authResult = await _auth.signInWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = authResult.user;
       return _convert2User(user);
-
     } catch(e){
-
       print(e.toString());
       return null;
-
     }
-
   }
 
 // Lets user sign out
@@ -41,6 +36,6 @@ class loginService {
       return null;
     }
   }
-
-
 }
+
+//https://youtu.be/mZYuuGAIwe4
