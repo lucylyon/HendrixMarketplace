@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:hendrix_marketplace/pages/authentication/register.dart';
 import 'package:hendrix_marketplace/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,19 +34,26 @@ class MyApp extends StatelessWidget{
     );
   }
    */
+
   @override
   Widget build(BuildContext context) {
     return StreamProvider<User>.value(
       value: loginService().user,
       child: MaterialApp(
         //The home page goes to wrapper
-          home: Wrapper()
+          home: Wrapper(),
+        routes: <String, WidgetBuilder>{
+          "/EditProfilePage": (BuildContext context) => new EditProfilePage(),
+          "/Register": (BuildContext context) => new Register(),
+          "/ProfilePage":(BuildContext context) => new ProfilePage(),
+          "/HomePage" :(BuildContext context) => new HomePage()
+        },
       ),
     );
   }
 }
 
+
 // https://www.youtube.com/watch?v=LBJoY4VjECo&list=PL4cUxeGkcC9j--TKIdkb3ISfRbJeJYQwC&index=5
-// https://youtu.be/j_SJ7XmT2MM
 // https://api.flutter.dev/flutter/material/Colors/orange-constant.html
 // https://api.flutter.dev/flutter/material/RaisedButton-class.html

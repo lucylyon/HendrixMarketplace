@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hendrix_marketplace/pages/home/bottom_nav_page.dart';
 import 'package:hendrix_marketplace/services/auth.dart';
 import 'dart:ui';
-import 'file:///C:/Users/morga/AndroidStudioProjects/hendrix_marketplace/HendrixMarketplace/lib/pages/home/bottom_nav_page.dart';
+
 
 class SignIn extends StatefulWidget{
+
   @override
   _SignInState createState() => _SignInState();
 }
@@ -44,6 +46,10 @@ class _SignInState extends State<SignIn> {
       ),
     ],
   );
+
+  void _register(){
+    {Navigator.of(context).pushNamed("/Register");}
+  }
 
 
   Widget _buildEmailTF() {
@@ -184,7 +190,7 @@ class _SignInState extends State<SignIn> {
 
   Widget _buildSignupBtn() {
     return GestureDetector(
-      onTap: () => print('Sign Up Button Pressed'),
+      onTap: _register,
       child: RichText(
         text: TextSpan(
           children: [
@@ -271,4 +277,52 @@ class _SignInState extends State<SignIn> {
   void youShallPass() {
     setState(() => isValidUser = !isValidUser);
   }
+
+  //Below is code that seems redundant
+
+/*
+  Widget _buildPasswordT() {
+    return Form(
+        key: _formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'Password',
+              style: labelStyle,
+            ),
+            SizedBox(height: 10.0),
+            Container(
+              alignment: Alignment.centerLeft,
+              decoration: boxDecorationStyle,
+              height: 60.0,
+              child: TextFormField(
+                obscureText: true,
+                validator: (text) => text.length < 6 ? "Password has to be at least 6 characters long" : null,
+                onChanged: (text) {
+                  setState(() => password = text);
+                },
+                style: TextStyle(
+                  color: Colors.orangeAccent,
+                  fontFamily: 'OpenSans',
+                ),
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(top: 14.0),
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: Colors.orangeAccent,
+                  ),
+                  hintText: 'Enter your Password',
+                  hintStyle: hintTextStyle,
+                ),
+              ),
+            ),
+          ],
+        )
+    );
+  }
+
+ */
+
 }

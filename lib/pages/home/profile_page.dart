@@ -1,11 +1,32 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hendrix_marketplace/models/user.dart';
 
 
 
 class ProfilePage extends StatefulWidget{
 
+  Firestore fireStore = Firestore.instance;
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
+
+  // User _user = _initUser();
+
+
   @override
   State createState() => new ProfilePageState();
+
+
+  void _initUser(){
+    FirebaseUser currUser = _auth.currentUser() as FirebaseUser;
+    fireStore.collection("Users").getDocuments().then((value) => {
+      // value.documents.wh
+    });
+
+  }
+
+
 }
 
 

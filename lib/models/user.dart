@@ -1,11 +1,10 @@
 class User {
 
-  final String userName;
+  final String displayName;
   final String uid;
 
 
-  User({this.userName, this.uid});
-
+  User({this.displayName, this.uid});
 
 
 }
