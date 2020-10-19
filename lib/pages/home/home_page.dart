@@ -1,6 +1,10 @@
+import 'package:hendrix_marketplace/models/user.dart';
 import 'package:hendrix_marketplace/pages/home/profile_page.dart';
 import 'package:flutter/material.dart';
+import 'package:hendrix_marketplace/pages/home/user_list.dart';
 import 'package:hendrix_marketplace/services/auth.dart';
+import 'package:provider/provider.dart';
+import 'package:hendrix_marketplace/services/database.dart';
 
 
 class HomePage extends StatefulWidget{
@@ -14,42 +18,24 @@ class HomePageState extends State<HomePage>{
 
   @override
   Widget build(BuildContext context){
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Home"),
-        centerTitle: true,
-        backgroundColor: Colors.orangeAccent,
-        actions: <Widget> [
-          FlatButton.icon(
-            icon: Icon(Icons.person, color: Colors.white,),
-            label: Text('Logout'),
-            onPressed: () async {
-              await _auth.signOut();
-            },
-          )
-        ],
-      ),
-      body: Container(
-        color: Colors.white10,
-        padding: const EdgeInsets.all(80.0),
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new TextField(
-              keyboardType: TextInputType.numberWithOptions(decimal: true, signed: false),
-              textAlign: TextAlign.center,
-              decoration: InputDecoration(
-                  hintText: "HomePageThing1",
-                  hintStyle: TextStyle(
-                      color: Colors.grey
-                  )
-              ),
-              style: TextStyle(
-                color: Colors.green,
-              ),
-            ),
+    return StreamProvider<List<User>>.value(
+      value: DatabaseService().users,
+      child: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("Home"),
+          centerTitle: true,
+          backgroundColor: Colors.orangeAccent,
+          actions: <Widget> [
+            FlatButton.icon(
+              icon: Icon(Icons.person, color: Colors.white,),
+              label: Text('Logout'),
+              onPressed: () async {
+                await _auth.signOut();
+              },
+            )
           ],
         ),
+        body: UserList(),
       ),
     );
   }
