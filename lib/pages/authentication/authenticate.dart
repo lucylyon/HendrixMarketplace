@@ -8,22 +8,6 @@ class Authenticate extends StatefulWidget {
 }
 
 class _AuthenticateState extends State<Authenticate> {
-/*
-  bool isValidUser = false;
-  void youShallPass(){
-    setState(() => isValidUser = !isValidUser);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if(isValidUser){
-      return SignIn(youShallPass: youShallPass );
-    } else {
-      return null;
-    }
-  }
-
- */
   @override
   Widget build(BuildContext context){
     return Container(

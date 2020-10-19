@@ -28,8 +28,8 @@ class DatabaseService{
   List<User> _userListFromSnapshot(QuerySnapshot snapshot){
     return snapshot.documents.map((doc){
       return User(
-        displayName: doc.data["displayName"],
-        ip: doc.data["ip"],
+        displayName: doc.data["displayName"] ?? '',
+        ip: doc.data["ip"] ?? '',
         uid: doc.data["uid"] ?? "Placeholder",
       );
     }).toList();
