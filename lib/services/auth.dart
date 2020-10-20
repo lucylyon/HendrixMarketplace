@@ -67,6 +67,7 @@ class loginService {
     Map<String,Object> User = new HashMap<String,Object>();
     User.putIfAbsent("displayName", () => displayName);
     User.putIfAbsent("ip", () => ip);
+    User.putIfAbsent("uid", () => currUid);
     documentReference.setData(User).whenComplete(() => print(User.toString() + "#### ADDED TO DATABASE ####"));
   }
 
