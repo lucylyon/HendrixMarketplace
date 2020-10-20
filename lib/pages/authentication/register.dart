@@ -64,7 +64,7 @@ class _RegisterState extends State<Register> {
                   ),
                   hintText: 'Enter your Display Name',
                   hintStyle: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontFamily: 'OpenSans',
                   ),
                 ),
@@ -87,7 +87,7 @@ class _RegisterState extends State<Register> {
                   ),
                   hintText: 'Enter your IP Address',
                   hintStyle: TextStyle(
-                    color: Colors.deepOrangeAccent,
+                    color: Colors.black,
                     fontFamily: 'OpenSans',
                   ),
                 ),
@@ -102,7 +102,7 @@ class _RegisterState extends State<Register> {
                   setState(() => email = val);
                 },
                 style: TextStyle(
-                  color: Colors.orangeAccent,
+                  color: Colors.black,
                   fontFamily: 'OpenSans',
                 ),
                 decoration: InputDecoration(
@@ -114,7 +114,7 @@ class _RegisterState extends State<Register> {
                   ),
                   hintText: 'Enter your Email',
                   hintStyle: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontFamily: 'OpenSans',
                   ),
                 ),
@@ -142,17 +142,17 @@ class _RegisterState extends State<Register> {
                   ),
                   hintText: 'Enter your Password',
                   hintStyle: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontFamily: 'OpenSans',
                   ),
                 ),
               ),
               SizedBox(height: 20.0),
               RaisedButton(
-                color: Colors.pink[400],
+                color: Colors.deepOrange[400],
                 child: Text(
                   "Register",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.black),
                 ),
                 onPressed: () async {
                   if(_formKey.currentState.validate()){

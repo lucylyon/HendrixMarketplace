@@ -3,16 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:hendrix_marketplace/services/auth.dart';
 import 'package:hendrix_marketplace/pages/home/edit_profile_page.dart';
 import 'package:hendrix_marketplace/pages/authentication/register.dart';
-import 'package:hendrix_marketplace/pages/home/buy_item_page.dart';
-import 'package:hendrix_marketplace/pages/home/sell_item_page.dart';
 
 
-class HomePage extends StatefulWidget{
+class BuyItemPage extends StatefulWidget{
   @override
-  State createState() => new HomePageState();
+  State createState() => new BuyItemPageState();
 }
 
-class HomePageState extends State<HomePage>{
+class BuyItemPageState extends State<BuyItemPage>{
 
   final loginService _auth = loginService();
 
@@ -20,7 +18,7 @@ class HomePageState extends State<HomePage>{
   Widget build(BuildContext context){
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Home"),
+        title: new Text("Buy an item"),
         centerTitle: true,
         backgroundColor: Colors.orangeAccent,
         actions: <Widget> [
@@ -42,16 +40,10 @@ class HomePageState extends State<HomePage>{
             Container( //inspired from boggle
               width: 300,
               height: 50,
-              child:RaisedButton(child: Text("Buy an item"), color: Colors.deepOrangeAccent, textColor: Colors.white, onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => BuyItemPage()),);}),
+              child:RaisedButton(child: Text("testing buying"), color: Colors.deepOrange, textColor: Colors.white, onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()),);}),
             ),
             SizedBox(height:20),
-            Container(
-              width: 300,
-              height: 50,
-              child:RaisedButton(child: Text("Sell an item"), color: Colors.deepOrangeAccent, textColor: Colors.white, onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SellItemPage()),);}),
-            )
           ],
         ),
       ),
