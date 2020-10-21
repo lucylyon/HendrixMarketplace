@@ -277,8 +277,4 @@ class _SignInState extends State<SignIn> {
   void youShallPass() {
     setState(() => isValidUser = !isValidUser);
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 }

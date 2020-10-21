@@ -19,6 +19,7 @@ class _RegisterState extends State<Register> {
   String email = "";
   String password = "";
   String error = "";
+  static String uid;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,7 @@ class _RegisterState extends State<Register> {
                   setState(() => displayName = val);
                 },
                 style: TextStyle(
-                  color: Colors.orangeAccent,
+                  color: Colors.black,
                   fontFamily: 'OpenSans',
                 ),
                 decoration: InputDecoration(
@@ -130,7 +131,7 @@ class _RegisterState extends State<Register> {
                   setState(() => password = val);
                 },
                 style: TextStyle(
-                  color: Colors.orangeAccent,
+                  color: Colors.black,
                   fontFamily: 'OpenSans',
                 ),
                 decoration: InputDecoration(
@@ -161,6 +162,8 @@ class _RegisterState extends State<Register> {
                     print(email);
                     print(password);
                     dynamic authResult = await _auth.registerWithEmailPassword(displayName, ip, email, password);
+                    uid = _auth.currUid;
+                    print(uid);
                     if(authResult == null){
                       setState(() => error = "error registering new user");
                     }

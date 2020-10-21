@@ -1,10 +1,18 @@
+import 'dart:collection';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hendrix_marketplace/models/user.dart';
 import 'package:hendrix_marketplace/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hendrix_marketplace/services/auth.dart';
 import 'package:hendrix_marketplace/models/item.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hendrix_marketplace/wrapper.dart';
 
 
 class SellItemPage extends StatefulWidget{
+
   @override
   State createState() => new SellItemPageState();
 }
@@ -12,11 +20,18 @@ class SellItemPage extends StatefulWidget{
 class SellItemPageState extends State<SellItemPage> {
 
   final loginService _auth = loginService();
-  final _formKey = GlobalKey<FormState>();
-  String _itemName, _itemCost, _itemDesc;
+  String _itemName = "";
+  String _itemCost = "";
+  String _itemDesc = "";
+  var item = new Item();
+  final Firestore fireStore = Firestore.instance;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  String currUid;
+  User currUser;
 
   @override
   Widget build(BuildContext context) {
+   // currUid = _auth.currUid;
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Sell an item"),
@@ -49,7 +64,7 @@ class SellItemPageState extends State<SellItemPage> {
                     ? "Enter something please"
                     : null,
                 onChanged: (text) {
-                  setState(() => _itemName = text);
+                 setState(() => _itemName = text);
                 },
                 style: TextStyle(
                   color: Colors.white,
@@ -124,11 +139,9 @@ class SellItemPageState extends State<SellItemPage> {
               width: 100,
               height: 50,
               child:RaisedButton(child: Text("Sell"), color: Colors.deepOrange, textColor: Colors.white,
-                  onPressed: (
-                    // var item = Item({name: _itemName, cost: _itemCost, desc: _itemDesc});
-                         //_itemName, _itemCost, _itemDesc);
-
-                  ) {
+                  onPressed: () {
+               item =  _createNewItem( _itemName, _itemCost, _itemDesc);
+                _saveItemInfo(item);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);}),
             ),
           )
@@ -136,6 +149,29 @@ class SellItemPageState extends State<SellItemPage> {
       )
     );
   }
+
+
+  Item _createNewItem(String _name, String _cost, String _desc){
+    return new Item(name: _name, cost: _cost, desc: _desc);
+  }
+
+  void _saveItemInfo(Item item){
+    currUser = _convert2User(_firebaseAuth.currentUser() as FirebaseUser);
+    currUid = currUser.uid;
+    DocumentReference documentReference = fireStore.collection("Users").document(currUid);
+    Map<String,Object> itemMap = new HashMap<String,Object>();
+    itemMap.putIfAbsent("name", () => item.name);
+    itemMap.putIfAbsent("cost", () => item.cost);
+    itemMap.putIfAbsent("desc", () => item.desc);
+    itemMap.putIfAbsent("uid", () => currUid);
+    documentReference.setData(itemMap).whenComplete(() => print(itemMap.toString() + "#### ADDED TO DATABASE ####"));
+  }
+
+  User _convert2User(FirebaseUser user){
+    currUser = new User(displayName: user.displayName, uid: user.uid);
+    return user != null ? User(displayName: user.displayName, uid: user.uid) : null;
+  }
+
 
   final hintTextStyle = TextStyle(
     color: Colors.white,

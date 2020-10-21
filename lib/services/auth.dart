@@ -12,9 +12,11 @@ class loginService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final Firestore fireStore = Firestore.instance;
   String currUid;
+  static User currUser;
 
   //Make init user class to pass between pages
   User _convert2User(FirebaseUser user){
+    currUser = new User(displayName: user.displayName, uid: user.uid);
     return user != null ? User(displayName: user.displayName, uid: user.uid) : null;
   }
 
