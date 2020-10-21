@@ -35,12 +35,78 @@ class BuyItemPageState extends State<BuyItemPage> {
                 await _auth.signOut();
               },
             )
-          ],
-        ),
-        body:    UserList(),
-      ),
+    ])
+    )
     );
   }
 }
 
+/*
+return new Scaffold(
+appBar: new AppBar(
+title: new Text("Home"),
+centerTitle: true,
+backgroundColor: Colors.orangeAccent,
+actions: <Widget> [
+FlatButton.icon(
+icon: Icon(Icons.person, color: Colors.white,),
+label: Text('Logout'),
+onPressed: () async {
+await _auth.signOut();
+},
+)
+],
+),
+body: Container(
+color: Colors.white10,
+padding: const EdgeInsets.all(80.0),
+child: new Column(
+mainAxisAlignment: MainAxisAlignment.center,
+children: <Widget>[
+Container( //inspired from boggle
+width: 300,
+height: 50,
+child:RaisedButton(child: Text("Buy an item"), color: Colors.deepOrangeAccent, textColor: Colors.white, onPressed: () {
+Navigator.push(context, MaterialPageRoute(builder: (context) => BuyItemPage()),);}),
+),
+SizedBox(height:20),
+Container(
+width: 300,
+height: 50,
+child:RaisedButton(child: Text("Sell an item"), color: Colors.deepOrangeAccent, textColor: Colors.white, onPressed: () {
+Navigator.push(context, MaterialPageRoute(builder: (context) => SellItemPage()),);}),
+)
+],
+),
+
+
+
+child: Scaffold(
+        backgroundColor: Colors.orange[50],
+        appBar: AppBar(
+          title: Text("Buy an Item"),
+          backgroundColor: Colors.orange[400],
+          elevation: 0.0,
+          actions: <Widget>[
+            FlatButton.icon(
+              icon: Icon(Icons.person),
+              onPressed: () async {
+                await _auth.signOut();
+              },
+              label: Text("Logout"),
+            ),
+            FlatButton.icon(
+              icon: Icon(Icons.settings),
+              label: Text('Settings'),
+              //onPressed: () => _showSettingsPanel(),
+            )
+          ],
+        ),
+        body: UserList(),
+      ),
+
+
+
+
+ */
 
