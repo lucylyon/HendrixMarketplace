@@ -1,6 +1,6 @@
-# hendrix_marketplace
+# ticket_manager
 
-Application that allows hendrix students to buy and sell used items
+An application that will allow a service team track and manager open, closed, and active tickets. As well as giving the recipient of the service a timeline of completion
 
 ## Getting Started
 
